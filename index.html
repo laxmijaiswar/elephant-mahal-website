@@ -1,180 +1,446 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elephant Mahal | Family-Friendly Restaurant in Neral, Karjat</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #c9933b;
-      --primary-dark: #a27225;
-      --bg-dark: #121619;
-      --card-bg: #1c2226;
-      --text-light: #f4f4f5;
-      --text-muted: #a1a1aa;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Elephant Mahal restaurant website demo. A modern, mobile-friendly restaurant website concept.">
+<title>Elephant Mahal | Restaurant Website Demo</title>
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Poppins', sans-serif; background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    /* Header & Nav */
-    header { background: rgba(18, 22, 25, 0.95); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #2d3439; backdrop-filter: blur(8px); }
-    .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
-    .logo { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--primary); font-weight: 700; letter-spacing: 1px; }
-    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-    .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 500; transition: color 0.3s; }
-    .nav-links a:hover { color: var(--primary); }
+<style>
+:root{
+  --gold:#d4a24c;
+  --gold-dark:#a97928;
+  --bg:#101416;
+  --surface:#191f22;
+  --surface-2:#20272b;
+  --text:#f7f5ef;
+  --muted:#aeb3b6;
+  --line:#30383d;
+  --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Poppins,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit}
+img{max-width:100%;display:block}
+.container{width:min(1160px,92%);margin:auto}
 
-    /* Hero Section */
-    .hero {
-      padding: 6rem 2rem 4rem;
-      text-align: center;
-      background: linear-gradient(180deg, rgba(18,22,25,0.7) 0%, rgba(18,22,25,1) 100%),
-                  radial-gradient(circle at center, #2c2214 0%, #121619 70%);
-    }
-    .badge { display: inline-block; background: rgba(201, 147, 59, 0.15); color: var(--primary); border: 1px solid var(--primary); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem; }
-    .hero h1 { font-family: 'Cinzel', serif; font-size: 3rem; margin-bottom: 1rem; color: #fff; }
-    .hero p { max-width: 600px; margin: 0 auto 2rem; color: var(--text-muted); font-size: 1.1rem; }
-    
-    .cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn { padding: 0.8rem 1.8rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: 0.3s; display: inline-flex; align-items: center; gap: 0.5rem; }
-    .btn-primary { background: var(--primary); color: #000; }
-    .btn-primary:hover { background: var(--primary-dark); color: #fff; }
-    .btn-outline { border: 1px solid #3f474d; color: var(--text-light); }
-    .btn-outline:hover { background: #252c31; }
+/* Demo notice */
+.demo-bar{
+  background:#2a2111;color:#f4d99d;text-align:center;padding:9px 16px;
+  font-size:.82rem;border-bottom:1px solid #5c4723
+}
 
-    /* Quick Info Strip */
-    .info-strip { background: var(--card-bg); border-y: 1px solid #2d3439; padding: 1.5rem 2rem; }
-    .info-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; text-align: center; }
-    .info-item h4 { color: var(--primary); margin-bottom: 0.2rem; font-size: 1.1rem; }
-    .info-item p { color: var(--text-muted); font-size: 0.95rem; }
+/* Header */
+header{
+  position:sticky;top:0;z-index:1000;background:rgba(16,20,22,.94);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line)
+}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:Cinzel,serif;color:var(--gold);font-size:1.35rem;letter-spacing:1px}
+.nav-links{display:flex;gap:25px;list-style:none}
+.nav-links a{text-decoration:none;font-weight:500;color:var(--text);transition:.25s}
+.nav-links a:hover{color:var(--gold)}
+.menu-toggle{
+  display:none;background:none;border:1px solid var(--line);color:var(--text);
+  font-size:1.35rem;border-radius:8px;padding:6px 10px;cursor:pointer
+}
 
-    /* Highlights / Menu */
-    .section { max-width: 1200px; margin: 0 auto; padding: 5rem 2rem; }
-    .section-title { text-align: center; font-family: 'Cinzel', serif; font-size: 2.2rem; margin-bottom: 0.5rem; }
-    .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 3rem; }
+/* Hero */
+.hero{
+  min-height:650px;display:grid;place-items:center;text-align:center;
+  padding:90px 0;background:
+  linear-gradient(180deg,rgba(10,12,13,.35),rgba(10,12,13,.97)),
+  radial-gradient(circle at 20% 20%,rgba(212,162,76,.24),transparent 30%),
+  radial-gradient(circle at 80% 35%,rgba(108,70,25,.22),transparent 28%),
+  linear-gradient(135deg,#252016 0%,#111618 48%,#090b0c 100%);
+  position:relative;overflow:hidden;
+}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(1px);pointer-events:none}
+.hero:before{width:340px;height:340px;left:-140px;top:70px;border:1px solid rgba(212,162,76,.16);box-shadow:0 0 90px rgba(212,162,76,.08)}
+.hero:after{width:280px;height:280px;right:-110px;bottom:50px;border:1px solid rgba(212,162,76,.12)}
+.hero > .container{position:relative;z-index:1}
+.badge{
+  display:inline-block;border:1px solid var(--gold);color:var(--gold);
+  background:rgba(212,162,76,.1);padding:7px 15px;border-radius:50px;
+  font-size:.86rem;margin-bottom:20px
+}
+.hero h1{font-family:Cinzel,serif;font-size:clamp(2.3rem,6vw,4.5rem);line-height:1.1;margin-bottom:20px}
+.hero p{max-width:700px;margin:0 auto 30px;color:var(--muted);font-size:1.05rem}
+.cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 20px;border-radius:9px;text-decoration:none;font-weight:600;
+  transition:.25s;border:1px solid transparent
+}
+.btn-primary{background:var(--gold);color:#111}
+.btn-primary:hover{background:#e2b565;transform:translateY(-2px)}
+.btn-outline{border-color:#596269;color:var(--text)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
 
-    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-    .menu-card { background: var(--card-bg); border: 1px solid #2d3439; border-radius: 12px; padding: 1.8rem; transition: transform 0.3s; }
-    .menu-card:hover { transform: translateY(-5px); border-color: var(--primary); }
-    .menu-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: #fff; }
-    .menu-card p { color: var(--text-muted); font-size: 0.95rem; }
+/* Quick info */
+.info-strip{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px}
+.info-item{text-align:center;padding:25px 15px;border-right:1px solid var(--line)}
+.info-item:last-child{border:0}
+.info-item h4{color:var(--gold);margin-bottom:5px}
+.info-item p{font-size:.9rem;color:var(--muted)}
 
-    /* Reviews Section */
-    .reviews-container { background: #161b1e; border-radius: 16px; padding: 3rem 2rem; border: 1px solid #2d3439; }
-    .rating-header { text-align: center; margin-bottom: 2.5rem; }
-    .rating-score { font-size: 3.5rem; font-weight: 700; color: var(--primary); line-height: 1; }
-    .stars { color: #f59e0b; font-size: 1.2rem; margin: 0.5rem 0; }
-    
-    .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .review-card { background: var(--card-bg); padding: 1.5rem; border-radius: 10px; border-left: 3px solid var(--primary); }
-    .review-card p { font-style: italic; color: #d4d4d8; font-size: 0.95rem; }
+/* Sections */
+.section{padding:85px 0}
+.section-title{text-align:center;font-family:Cinzel,serif;font-size:2.25rem;margin-bottom:9px}
+.section-subtitle{text-align:center;color:var(--muted);margin-bottom:42px}
 
-    /* Footer */
-    footer { background: #0b0e10; text-align: center; padding: 2rem; color: var(--text-muted); border-top: 1px solid #2d3439; font-size: 0.9rem; }
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.about-placeholder{
+  min-height:360px;border:1px dashed #6a5734;border-radius:18px;
+  display:grid;place-items:center;text-align:center;padding:30px;
+  background:linear-gradient(135deg,#282117,#171b1d)
+}
+.placeholder-icon{font-size:3.5rem;margin-bottom:10px}
+.about-copy h3{font-family:Cinzel,serif;font-size:1.7rem;margin-bottom:12px}
+.about-copy p{color:var(--muted);margin-bottom:15px}
 
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.2rem; }
-      .nav-links { display: none; }
-    }
-  </style>
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gallery-card{
+  min-height:210px;border-radius:14px;overflow:hidden;border:1px dashed #655331;
+  display:grid;place-items:center;text-align:center;padding:20px;
+  background:linear-gradient(135deg,#29241b,#171b1d);color:#d9c28e
+}
+.gallery-card span{font-size:2rem;display:block;margin-bottom:8px}
+.gallery-card small{color:var(--muted)}
+
+/* Menu */
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.menu-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:15px;
+  padding:25px;transition:.25s
+}
+.menu-card:hover{transform:translateY(-5px);border-color:var(--gold)}
+.menu-icon{font-size:2rem;margin-bottom:12px}
+.menu-card h3{margin-bottom:8px}
+.menu-card p{color:var(--muted);font-size:.92rem}
+.menu-note{
+  margin-top:25px;text-align:center;color:#d4c29d;background:#1d1a14;
+  border:1px solid #4e4025;border-radius:10px;padding:13px;font-size:.85rem
+}
+
+/* Reviews */
+.reviews-container{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:42px}
+.rating{text-align:center;margin-bottom:35px}
+.rating-score{font-size:4rem;font-weight:700;color:var(--gold);line-height:1}
+.stars{color:#f5b942;letter-spacing:3px;font-size:1.15rem;margin:8px}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.review-card{background:var(--surface-2);padding:22px;border-radius:12px;border-left:3px solid var(--gold)}
+.review-card p{color:#d7d9da;font-style:italic;font-size:.92rem}
+.review-card small{display:block;margin-top:12px;color:var(--muted)}
+
+/* Contact */
+.contact-box{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:25px;
+  background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:30px
+}
+.contact-card{padding:10px}
+.contact-card h3{font-family:Cinzel,serif;margin-bottom:15px}
+.contact-list{list-style:none;display:grid;gap:12px;color:var(--muted)}
+.contact-list strong{color:var(--text)}
+.map-placeholder{
+  min-height:260px;border-radius:13px;border:1px dashed #6a5734;
+  display:grid;place-items:center;text-align:center;padding:25px;background:#171b1d
+}
+.map-placeholder .pin{font-size:3rem}
+.map-placeholder p{color:var(--muted);margin:8px 0 15px}
+
+/* Footer */
+footer{background:#0a0d0f;border-top:1px solid var(--line);text-align:center;padding:35px 15px;color:var(--muted);font-size:.85rem}
+.footer-title{font-family:Cinzel,serif;color:var(--gold);font-size:1.15rem;margin-bottom:7px}
+
+/* Floating WhatsApp */
+.whatsapp{
+  position:fixed;right:18px;bottom:18px;width:54px;height:54px;border-radius:50%;
+  display:grid;place-items:center;background:#25d366;color:#fff;text-decoration:none;
+  font-size:1.5rem;box-shadow:0 8px 25px rgba(0,0,0,.35);z-index:900
+}
+
+/* Mobile */
+@media(max-width:900px){
+  .info-grid{grid-template-columns:repeat(2,1fr)}
+  .info-item:nth-child(2){border-right:0}
+  .info-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .about-grid,.contact-box{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .menu-grid,.review-grid{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .nav{min-height:64px}
+  .menu-toggle{display:block}
+  .nav-links{
+    display:none;position:absolute;top:64px;left:0;right:0;
+    background:#121719;border-bottom:1px solid var(--line);padding:10px 5%;
+    flex-direction:column;gap:0
+  }
+  .nav-links.open{display:flex}
+  .nav-links li a{display:block;padding:12px 0}
+  .hero{min-height:570px;padding:65px 0}
+  .hero h1{font-size:2.45rem}
+  .info-grid{grid-template-columns:1fr}
+  .info-item,.info-item:nth-child(2){border-right:0;border-bottom:1px solid var(--line)}
+  .info-item:last-child{border-bottom:0}
+  .section{padding:65px 0}
+  .gallery{grid-template-columns:1fr 1fr}
+  .gallery-card{min-height:160px}
+  .reviews-container{padding:25px 18px}
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Navigation -->
-  <header>
-    <div class="nav-container">
-      <div class="logo">ELEPHANT MAHAL</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#menu">Highlights</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </header>
+<div class="demo-bar">
+  DEMO WEBSITE • This concept is not an official website of Elephant Mahal until approved by the restaurant.
+</div>
 
-  <!-- Hero Section -->
-  <section class="hero" id="about">
-    <span class="badge">★ 4.8 Rating (85+ Reviews)</span>
-    <h1>Delicious Dining & Unique Ambiance</h1>
-    <p>A memorable family restaurant in Neral, Karjat known for authentic curries, flavorful kebabs, fresh seafood, and distinctive elephant-themed decor.</p>
-    <div class="cta-group">
-      <a href="https://wa.me/919619250505" class="btn btn-primary" target="_blank">📱 WhatsApp Us</a>
-      <a href="tel:09619250505" class="btn btn-outline">📞 Call 096192 50505</a>
-    </div>
-  </section>
+<header>
+  <nav class="nav container">
+    <a class="logo" href="#home">ELEPHANT MAHAL</a>
 
-  <!-- Quick Details -->
-  <div class="info-strip" id="contact">
-    <div class="info-grid">
-      <div class="info-item">
-        <h4>📍 Location</h4>
-        <p>Near Neral CNG Station, Karjat, Neral, Maharashtra 410101</p>
+    <button class="menu-toggle" aria-label="Open navigation" onclick="toggleMenu()">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#gallery" onclick="closeMenu()">Gallery</a></li>
+      <li><a href="#menu" onclick="closeMenu()">Menu</a></li>
+      <li><a href="#reviews" onclick="closeMenu()">Reviews</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="home">
+
+<section class="hero">
+  <div class="container">
+    <span class="badge">🍽️ RESTAURANT WEBSITE CONCEPT</span>
+    <h1>Delicious Dining<br>Beautiful Memories</h1>
+    <p>
+      A modern website concept designed for Elephant Mahal to help customers
+      discover the restaurant, explore the menu, view the ambience and get in touch easily.
+    </p>
+
+    <div class="cta">
+      <a href="#menu" class="btn btn-primary">🍽️ Explore Menu</a>
+      <a href="#contact" class="btn btn-outline">📍 Find Us</a>
+    </div>
+  </div>
+</section>
+
+<div class="info-strip">
+  <div class="info-grid container">
+    <div class="info-item">
+      <h4>📍 Location</h4>
+      <p>Near Neral CNG Station, Neral, Maharashtra 410101</p>
+    </div>
+    <div class="info-item">
+      <h4>⏰ Opening Hours</h4>
+      <p>11:00 AM – 12:00 AM*</p>
+    </div>
+    <div class="info-item">
+      <h4>🍽️ Cuisine</h4>
+      <p>Indian • Kebabs • Seafood</p>
+    </div>
+    <div class="info-item">
+      <h4>👨‍👩‍👧‍👦 Atmosphere</h4>
+      <p>Family Friendly</p>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="about">
+  <div class="container">
+    <h2 class="section-title">About Elephant Mahal</h2>
+    <p class="section-subtitle">A welcoming place for good food and good company</p>
+
+    <div class="about-grid">
+      <div class="about-placeholder">
+        <div>
+          <div class="placeholder-icon">🐘</div>
+          <strong>Restaurant / Ambience Photo</strong>
+          <p style="color:#aaa;margin-top:6px;font-size:.85rem">
+            Replace this demo area with an approved restaurant photo.
+          </p>
+        </div>
       </div>
-      <div class="info-item">
-        <h4>⏰ Opening Hours</h4>
-        <p>Open Daily · Closes 12:00 AM</p>
-      </div>
-      <div class="info-item">
-        <h4>💰 Cost for Two</h4>
-        <p>₹200 – ₹400 per person</p>
-      </div>
-      <div class="info-item">
-        <h4>👨‍👩‍👧‍👦 Atmosphere</h4>
-        <p>Family-Friendly & Refreshing Decor</p>
+
+      <div class="about-copy">
+        <h3>A website made for your restaurant</h3>
+        <p>
+          This demo is designed to give customers a quick and attractive way
+          to learn about Elephant Mahal before visiting.
+        </p>
+        <p>
+          The final website can include the restaurant's real story, menu,
+          food photography, opening hours, contact details, social media and
+          Google Maps location.
+        </p>
+        <a href="#contact" class="btn btn-primary">Let's Build the Final Site</a>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- Highlights / Menu Overview -->
-  <section class="section" id="menu">
-    <h2 class="section-title">Culinary Highlights</h2>
-    <p class="section-subtitle">Crafted with authentic spices and generous portion sizes</p>
-    
-    <div class="menu-grid">
-      <div class="menu-card">
-        <h3>🍢 Signature Kebabs</h3>
-        <p>Juicy, tender, and freshly grilled non-veg kebabs marinated in traditional house spices.</p>
-      </div>
-      <div class="menu-card">
-        <h3>🍲 Rich Indian Curries</h3>
-        <p>Flavorful non-veg and veg curries crafted for authentic taste and comforting dining.</p>
-      </div>
-      <div class="menu-card">
-        <h3>🐟 Fresh Seafood</h3>
-        <p>Specially prepared regional seafood delicacies made with rich local flavors.</p>
-      </div>
+<section class="section" id="gallery">
+  <div class="container">
+    <h2 class="section-title">Restaurant Gallery</h2>
+    <p class="section-subtitle">Show customers the food, ambience and experience</p>
+
+    <div class="gallery">
+      <div class="gallery-card"><div><span>📷</span><strong>Exterior</strong><small>Replace with approved restaurant photo</small></div></div>
+      <div class="gallery-card"><div><span>✨</span><strong>Ambience</strong><small>Replace with approved interior photo</small></div></div>
+      <div class="gallery-card"><div><span>🍽️</span><strong>Signature Dish</strong><small>Replace with approved food photo</small></div></div>
+      <div class="gallery-card"><div><span>🥘</span><strong>Chef's Specials</strong><small>Replace with approved food photo</small></div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Reviews Section -->
-  <section class="section" id="reviews">
+<section class="section" id="menu">
+  <div class="container">
+    <h2 class="section-title">Menu Highlights</h2>
+    <p class="section-subtitle">A clean menu section customers can browse on their phone</p>
+
+    <div class="menu-grid">
+      <article class="menu-card">
+        <div class="menu-icon">🍢</div>
+        <h3>Signature Kebabs</h3>
+        <p>Freshly grilled kebabs prepared with house-style spices.</p>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-icon">🍲</div>
+        <h3>Indian Curries</h3>
+        <p>Rich vegetarian and non-vegetarian curry options.</p>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-icon">🐟</div>
+        <h3>Seafood Specials</h3>
+        <p>Regional seafood dishes prepared with fresh ingredients.</p>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-icon">🍚</div>
+        <h3>Biryani & Rice</h3>
+        <p>Popular rice dishes and biryani options can be added here.</p>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-icon">🥗</div>
+        <h3>Vegetarian Favourites</h3>
+        <p>Veg starters, mains and sides can be displayed here.</p>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-icon">🥤</div>
+        <h3>Drinks & Desserts</h3>
+        <p>Beverages and desserts can be added with real prices.</p>
+      </article>
+    </div>
+
+    <div class="menu-note">
+      Demo note: final dish names, photos and prices should be supplied and approved by the restaurant.
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="container">
+    <h2 class="section-title">Customer Reviews</h2>
+    <p class="section-subtitle">Social proof that can be connected to the restaurant's real reviews</p>
+
     <div class="reviews-container">
-      <div class="rating-header">
+      <div class="rating">
         <div class="rating-score">4.8</div>
         <div class="stars">★★★★★</div>
-        <p style="color: var(--text-muted)">Based on 85 Google Reviews</p>
+        <p style="color:var(--muted)">Based on 85 Google reviews* • verify with the owner before publishing.</p>
       </div>
+
       <div class="review-grid">
         <div class="review-card">
-          <p>"Food quality is very good and service facility staff is very supportive."</p>
+          <p>“Add an approved customer review here.”</p>
+          <small>— Customer name</small>
         </div>
         <div class="review-card">
-          <p>"Good place to eat with tasty food and good service."</p>
+          <p>“Add an approved customer review here.”</p>
+          <small>— Customer name</small>
         </div>
         <div class="review-card">
-          <p>"We had a good time with family, very delicious food and amazing ambience."</p>
+          <p>“Add an approved customer review here.”</p>
+          <small>— Customer name</small>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© Elephant Mahal Restaurant. All rights reserved.</p>
-  </footer>
+<section class="section" id="contact">
+  <div class="container">
+    <h2 class="section-title">Visit & Contact</h2>
+    <p class="section-subtitle">Make it easy for customers to reach the restaurant</p>
+
+    <div class="contact-box">
+      <div class="contact-card">
+        <h3>Restaurant Details</h3>
+        <ul class="contact-list">
+          <li>📍 <strong>Address:</strong> Neral, Maharashtra — Near Neral CNG Station, Neral, Maharashtra 410101*</li></li>
+          <li>📞 <strong>Phone:</strong> +91 96192 50505*</li></li>
+          <li>💬 <strong>WhatsApp:</strong> +91 96192 50505*</li></li>
+          <li>⏰ <strong>Hours:</strong> Add confirmed opening hours</li>
+          <li>📷 <strong>Instagram:</strong> Add official Instagram link</li>
+        </ul>
+
+        <div class="cta" style="justify-content:flex-start;margin-top:22px">
+          <a href="#" class="btn btn-primary">📞 Call Restaurant</a>
+          <a href="#" class="btn btn-outline">💬 WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="map-placeholder">
+        <div>
+          <div class="pin">📍</div>
+          <strong>Google Maps Location</strong>
+          <p>Replace this demo area with the restaurant's verified Google Maps link.</p>
+          <a href="#" class="btn btn-primary">Get Directions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="container" style="padding-bottom:20px;text-align:center;color:#777;font-size:.75rem">
+  *Publicly listed business information shown for demonstration. Confirm all details with the owner before launch.
+</div>
+
+<a class="whatsapp" href="#" aria-label="WhatsApp">💬</a>
+
+<footer>
+  <div class="footer-title">ELEPHANT MAHAL</div>
+  <p>Website concept created as a demonstration.</p>
+  <p style="margin-top:8px">© 2026 • Final business information to be confirmed by the owner.</p>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('navLinks').classList.remove('open');
+}
+</script>
 
 </body>
 </html>
