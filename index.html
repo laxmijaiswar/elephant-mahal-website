@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elephant Mahal | Family-Friendly Restaurant in Neral, Karjat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #c9933b;
+      --primary-dark: #a27225;
+      --bg-dark: #121619;
+      --card-bg: #1c2226;
+      --text-light: #f4f4f5;
+      --text-muted: #a1a1aa;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
+
+    /* Header & Nav */
+    header { background: rgba(18, 22, 25, 0.95); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #2d3439; backdrop-filter: blur(8px); }
+    .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+    .logo { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--primary); font-weight: 700; letter-spacing: 1px; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* Hero Section */
+    .hero {
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(18,22,25,0.7) 0%, rgba(18,22,25,1) 100%),
+                  radial-gradient(circle at center, #2c2214 0%, #121619 70%);
+    }
+    .badge { display: inline-block; background: rgba(201, 147, 59, 0.15); color: var(--primary); border: 1px solid var(--primary); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1rem; }
+    .hero h1 { font-family: 'Cinzel', serif; font-size: 3rem; margin-bottom: 1rem; color: #fff; }
+    .hero p { max-width: 600px; margin: 0 auto 2rem; color: var(--text-muted); font-size: 1.1rem; }
+    
+    .cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn { padding: 0.8rem 1.8rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: 0.3s; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-primary { background: var(--primary); color: #000; }
+    .btn-primary:hover { background: var(--primary-dark); color: #fff; }
+    .btn-outline { border: 1px solid #3f474d; color: var(--text-light); }
+    .btn-outline:hover { background: #252c31; }
+
+    /* Quick Info Strip */
+    .info-strip { background: var(--card-bg); border-y: 1px solid #2d3439; padding: 1.5rem 2rem; }
+    .info-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; text-align: center; }
+    .info-item h4 { color: var(--primary); margin-bottom: 0.2rem; font-size: 1.1rem; }
+    .info-item p { color: var(--text-muted); font-size: 0.95rem; }
+
+    /* Highlights / Menu */
+    .section { max-width: 1200px; margin: 0 auto; padding: 5rem 2rem; }
+    .section-title { text-align: center; font-family: 'Cinzel', serif; font-size: 2.2rem; margin-bottom: 0.5rem; }
+    .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 3rem; }
+
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .menu-card { background: var(--card-bg); border: 1px solid #2d3439; border-radius: 12px; padding: 1.8rem; transition: transform 0.3s; }
+    .menu-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+    .menu-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: #fff; }
+    .menu-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+    /* Reviews Section */
+    .reviews-container { background: #161b1e; border-radius: 16px; padding: 3rem 2rem; border: 1px solid #2d3439; }
+    .rating-header { text-align: center; margin-bottom: 2.5rem; }
+    .rating-score { font-size: 3.5rem; font-weight: 700; color: var(--primary); line-height: 1; }
+    .stars { color: #f59e0b; font-size: 1.2rem; margin: 0.5rem 0; }
+    
+    .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .review-card { background: var(--card-bg); padding: 1.5rem; border-radius: 10px; border-left: 3px solid var(--primary); }
+    .review-card p { font-style: italic; color: #d4d4d8; font-size: 0.95rem; }
+
+    /* Footer */
+    footer { background: #0b0e10; text-align: center; padding: 2rem; color: var(--text-muted); border-top: 1px solid #2d3439; font-size: 0.9rem; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">ELEPHANT MAHAL</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Highlights</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="about">
+    <span class="badge">★ 4.8 Rating (85+ Reviews)</span>
+    <h1>Delicious Dining & Unique Ambiance</h1>
+    <p>A memorable family restaurant in Neral, Karjat known for authentic curries, flavorful kebabs, fresh seafood, and distinctive elephant-themed decor.</p>
+    <div class="cta-group">
+      <a href="https://wa.me/919619250505" class="btn btn-primary" target="_blank">📱 WhatsApp Us</a>
+      <a href="tel:09619250505" class="btn btn-outline">📞 Call 096192 50505</a>
+    </div>
+  </section>
+
+  <!-- Quick Details -->
+  <div class="info-strip" id="contact">
+    <div class="info-grid">
+      <div class="info-item">
+        <h4>📍 Location</h4>
+        <p>Near Neral CNG Station, Karjat, Neral, Maharashtra 410101</p>
+      </div>
+      <div class="info-item">
+        <h4>⏰ Opening Hours</h4>
+        <p>Open Daily · Closes 12:00 AM</p>
+      </div>
+      <div class="info-item">
+        <h4>💰 Cost for Two</h4>
+        <p>₹200 – ₹400 per person</p>
+      </div>
+      <div class="info-item">
+        <h4>👨‍👩‍👧‍👦 Atmosphere</h4>
+        <p>Family-Friendly & Refreshing Decor</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Highlights / Menu Overview -->
+  <section class="section" id="menu">
+    <h2 class="section-title">Culinary Highlights</h2>
+    <p class="section-subtitle">Crafted with authentic spices and generous portion sizes</p>
+    
+    <div class="menu-grid">
+      <div class="menu-card">
+        <h3>🍢 Signature Kebabs</h3>
+        <p>Juicy, tender, and freshly grilled non-veg kebabs marinated in traditional house spices.</p>
+      </div>
+      <div class="menu-card">
+        <h3>🍲 Rich Indian Curries</h3>
+        <p>Flavorful non-veg and veg curries crafted for authentic taste and comforting dining.</p>
+      </div>
+      <div class="menu-card">
+        <h3>🐟 Fresh Seafood</h3>
+        <p>Specially prepared regional seafood delicacies made with rich local flavors.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="section" id="reviews">
+    <div class="reviews-container">
+      <div class="rating-header">
+        <div class="rating-score">4.8</div>
+        <div class="stars">★★★★★</div>
+        <p style="color: var(--text-muted)">Based on 85 Google Reviews</p>
+      </div>
+      <div class="review-grid">
+        <div class="review-card">
+          <p>"Food quality is very good and service facility staff is very supportive."</p>
+        </div>
+        <div class="review-card">
+          <p>"Good place to eat with tasty food and good service."</p>
+        </div>
+        <div class="review-card">
+          <p>"We had a good time with family, very delicious food and amazing ambience."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© Elephant Mahal Restaurant. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
